@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>ACAPLAU</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> 
+ </head>
+
+  <body>
+    MADE BY VITOR </h1>
+
+  </body>
+    <div class = "col-8 m-auto pt-2 pb-2 text-center">
+        <h1>MERCADORIAS DO GERALDO </h1>
+    </div>
+
+    <div class = "col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/cadastro" class="btn btn-success">Atualizar</a>
+    </div>
+    
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">MODELOS DE URSOS</th>
+                <th scope="col">COR</th>
+                <th scope="col">COM CORAÇÃO</th>
+                <th scope="col">TAMANHO</th>
+                <th scope="col">QUANTIDADE</th>
+                <th scope="col">AÇÕES</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for dbs in db %}
+              <tr>
+                <th>{{dbs.id}}</th>
+                <td>{{dbs.modelo}}</td>
+                <td>{{dbs.cor}}</td>
+                <td>{{dbs.coracao}}</td>
+                <td>{{dbs.tamanho}}</td>
+                <td>{{dbs.quantidade}}</td>
+                <td>
+                    <a href="/view/{{dbs.id}}" class="btn btn-dark">Visualizar</a>
+                    <a href="/edit/{{dbs.id}}" class="btn btn-primary">Editar</a>
+                    <a href="/delete/{{dbs.id}}" class="btn btn-danger">Deletar</a>
+                </td>
+              </tr>
+              {% endfor %}
+              
+            </tbody>
+          </table>
+
+          {% load static %}
+          <script src="{% static 'javascript.js' %}"></script>
+</html>
